@@ -1,0 +1,12 @@
+Metrics/BlockLength:
+  Exclude:
+    - '*.gemspec'
+    - 'test/**/*.rb'
+
+Metrics/ClassLength:
+  Exclude:
+    - 'lib/money/bank/openexchangerates_bank.rb'
+
+Style/RedundantFreeze:
+  Exclude:
+    - 'lib/money/bank/openexchangerates_bank.rb'
