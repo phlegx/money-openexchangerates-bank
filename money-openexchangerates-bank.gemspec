@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = 'money-openexchangerates-bank'
-  s.version = '0.1.1'
+  s.version = '0.1.2'
   s.date = Time.now.utc.strftime('%Y-%m-%d')
   s.homepage = "http://github.com/phlegx/#{s.name}"
   s.authors = ['Egon Zemmer']
