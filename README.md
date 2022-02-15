@@ -5,7 +5,6 @@
 [![Build Status](https://secure.travis-ci.org/phlegx/money-openexchangerates-bank.svg?branch=master)](https://travis-ci.org/phlegx/money-openexchangerates-bank)
 [![Code Climate](https://codeclimate.com/github/phlegx/money-openexchangerates-bank.svg)](https://codeclimate.com/github/phlegx/money-openexchangerates-bank)
 [![Inline Docs](https://inch-ci.org/github/phlegx/money-openexchangerates-bank.svg?branch=master)](http://inch-ci.org/github/phlegx/money-openexchangerates-bank)
-[![Dependency Status](https://gemnasium.com/phlegx/money-openexchangerates-bank.svg)](https://gemnasium.com/phlegx/money-openexchangerates-bank)
 [![License](https://img.shields.io/github/license/phlegx/money-openexchangerates-bank.svg)](http://opensource.org/licenses/MIT)
 
 A gem that calculates the exchange rate using published rates from
