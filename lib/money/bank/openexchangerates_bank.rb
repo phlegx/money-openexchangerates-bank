@@ -294,11 +294,18 @@ class Money
       # @param straight [Boolean] true for straight, default is careful
       # @return [Hash] key is country code (ISO 3166-1 alpha-3) value Float
       def exchange_rates(straight = false)
-        @rates = if straight
-                   raw_rates_straight['rates']
-                 else
-                   raw_rates_careful['rates']
-                 end
+        rates = if straight
+                  raw_rates_straight
+                else
+                  raw_rates_careful
+                end
+        if rates.key?('rates')
+          @rates = rates['rates']
+        elsif rates.key?('error')
+          raise Error, rates['description']
+        else
+          raise Error, 'Unknown rates situation!'
+        end
       end
 
       # Get raw exchange rates from cache and then from url

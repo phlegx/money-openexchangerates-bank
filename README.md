@@ -3,8 +3,8 @@
 [![Gem Version](https://badge.fury.io/rb/money-openexchangerates-bank.svg)](https://rubygems.org/gems/money-openexchangerates-bank)
 [![Gem](https://img.shields.io/gem/dt/money-openexchangerates-bank.svg?maxAge=2592000)](https://rubygems.org/gems/money-openexchangerates-bank)
 [![Build Status](https://secure.travis-ci.org/phlegx/money-openexchangerates-bank.svg?branch=master)](https://travis-ci.org/phlegx/money-openexchangerates-bank)
-[![Code Climate](http://img.shields.io/codeclimate/github/phlegx/money-openexchangerates-bank.svg)](https://codeclimate.com/github/phlegx/money-openexchangerates-bank)
-[![Inline Docs](http://inch-ci.org/github/phlegx/money-openexchangerates-bank.svg?branch=master)](http://inch-ci.org/github/phlegx/money-openexchangerates-bank)
+[![Code Climate](https://codeclimate.com/github/phlegx/money-openexchangerates-bank.svg)](https://codeclimate.com/github/phlegx/money-openexchangerates-bank)
+[![Inline Docs](https://inch-ci.org/github/phlegx/money-openexchangerates-bank.svg?branch=master)](http://inch-ci.org/github/phlegx/money-openexchangerates-bank)
 [![Dependency Status](https://gemnasium.com/phlegx/money-openexchangerates-bank.svg)](https://gemnasium.com/phlegx/money-openexchangerates-bank)
 [![License](https://img.shields.io/github/license/phlegx/money-openexchangerates-bank.svg)](http://opensource.org/licenses/MIT)
 
@@ -33,7 +33,7 @@ See more about Openexchangerates product plans on https://openexchangerates.org/
 
 ## Features
 
-* supports 190 currencies
+* supports over 200 currencies
 * includes cryptocurrencies
 * precision of rates up to 6 digits after point
 * uses fast and reliable json api
@@ -61,16 +61,10 @@ Or install it yourself as:
 ## Usage
 
 ~~~ ruby
-# Minimal requirements
+# Minimal requirements.
 require 'money/bank/openexchangerates_bank'
 moxb = Money::Bank::OpenexchangeratesBank.new
 moxb.access_key = 'your access_key from https://openexchangerates.com/signup'
-
-# Update rates (get new rates from remote if expired or access rates from cache)
-moxb.update_rates
-
-# Force update rates from remote and store in cache
-# moxb.update_rates(true)
 
 # (optional)
 # Set the base currency for all rates. By default, USD is used.
@@ -78,19 +72,30 @@ moxb.update_rates
 moxb.source = 'EUR'
 
 # (optional)
-# Set the seconds after than the current rates are automatically expired
-# by default, they never expire, in this example 1 day.
+# Set the seconds after than the current rates are automatically expired.
+# By default, they never expire, in this example 1 day.
 moxb.ttl_in_seconds = 86400
 
 # (optional)
-# Use https to fetch rates from OpenexchangeratesBank
+# Use https to fetch rates from OpenexchangeratesBank.
 # OpenexchangeratesBank only allows http as connection for the free plan users.
 moxb.secure_connection = true
 
-# Define cache (string or pathname)
+# Define cache (string or pathname).
 moxb.cache = 'path/to/file/cache'
 
-# Set money default bank to Openexchangerates bank
+# Update rates (get new rates from remote if expired or access rates from cache).
+# Be sure to define the cache first before updating the rates.
+moxb.update_rates
+
+# Force update rates from remote and store in cache.
+# Be sure to define the cache first before updating the rates.
+# moxb.update_rates(true)
+
+# Set money rounding mode.
+Money.rounding_mode = BigDecimal::ROUND_HALF_EVEN
+
+# Set money default bank to Openexchangerates bank.
 Money.default_bank = moxb
 ~~~
 
@@ -222,4 +227,4 @@ bundle exec rake
 
 The MIT License
 
-Copyright (c) 2017 Phlegx Systems OG
+Copyright (c) 2022 Phlegx Systems OG

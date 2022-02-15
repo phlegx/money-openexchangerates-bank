@@ -4,6 +4,7 @@
 require File.expand_path(File.join(File.dirname(__FILE__), 'test_helper'))
 
 describe Money::Bank::OpenexchangeratesBank do
+  Money.rounding_mode = BigDecimal::ROUND_HALF_EVEN
   subject { Money::Bank::OpenexchangeratesBank.new }
   let(:url) { Money::Bank::OpenexchangeratesBank::CL_URL }
   let(:secure_url) { Money::Bank::OpenexchangeratesBank::CL_SECURE_URL }
